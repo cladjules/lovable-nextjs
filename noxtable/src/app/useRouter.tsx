@@ -15,8 +15,10 @@ const Link = ({
   to,
   href,
   ...args
-}: LinkProps & {
+}: Omit<LinkProps, "href"> & {
   to?: string;
+  href?: string;
+  className?: string;
   children?: React.ReactNode | undefined;
 }) => {
   return <NextLink href={href || to} {...args} />;
