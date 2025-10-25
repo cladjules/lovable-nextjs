@@ -1,0 +1,14 @@
+{
+  "extends": ["./tsconfig-nextjs.json", "./tsconfig-vite.json"],
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./client/*"],
+      "@Next/*": ["./src/app/*"]
+    }
+  }
+}
