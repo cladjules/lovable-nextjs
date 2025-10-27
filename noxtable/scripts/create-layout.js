@@ -32,6 +32,7 @@ const exec = () => {
   let layoutFile = fs.readFileSync(layoutPath, "utf-8");
   layoutFile = layoutFile.replaceAll("HTML", `(${indexFile})`);
   layoutFile = layoutFile.replaceAll("<!doctype html>", "");
+  layoutFile = layoutFile.replaceAll("<!DOCTYPE html>", "");
   layoutFile = layoutFile.replaceAll("charset", "charSet");
   layoutFile = layoutFile.replaceAll(
     '<div id="root"></div>',

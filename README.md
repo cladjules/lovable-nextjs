@@ -9,6 +9,8 @@
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4.svg)](https://tailwindcss.com/)
 
+[🎯 **Live Demo**](https://noxtable.cladjules.com) | [📖 **Documentation**](#-quick-start) | [🚀 **Get Started**](#-quick-start)
+
 </div>
 
 ---

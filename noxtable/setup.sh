@@ -12,6 +12,8 @@ rm -rf .$BUILD_DIR/client
 npm i
 mkdir $BUILD_DIR
 mkdir $CLIENT_DIR
+mkdir .$BUILD_DIR
+mkdir .$CLIENT_DIR
 
 # Merge package files
 npx package-json-merge ../package.json noxtable-package.json  > $BUILD_DIR/package.json
@@ -20,6 +22,7 @@ npx package-json-merge ../package.json noxtable-package.json  > $BUILD_DIR/packa
 # Copy resources
 cp -rf ./src $BUILD_DIR
 cp -rf ../src/* $CLIENT_DIR
+cp .gitignore $BUILD_DIR
 cp next.config.ts $BUILD_DIR
 cp ../postcss* $BUILD_DIR
 cp ../tailwind* $BUILD_DIR
@@ -62,7 +65,7 @@ grep "react-router-dom" $CLIENT_DIR -lr | xargs sed -i '' -e 's/react-router-dom
 npx eslint  ./nextjs/src/app/ --fix
 
 # Move nextjs folder
-cp -rf $BUILD_DIR/* .$BUILD_DIR/
+cp -rf $BUILD_DIR/. .$BUILD_DIR/
 rm -rf $BUILD_DIR/
 
 # Package install
