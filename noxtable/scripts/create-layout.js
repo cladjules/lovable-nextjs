@@ -19,12 +19,19 @@ const exec = () => {
     "./nextjs/src/app/providers.tsx"
   );
   let providerFile = fs.readFileSync(providerPath, "utf-8");
-  providerFile = providerFile.replaceAll(
-    /\<BrowserRouter(.*?)BrowserRouter\>/gs,
-    "{children}"
-  );
+  if (providerFile.includes("BrowserRouter")) {
+    providerFile = providerFile.replaceAll(
+      /<BrowserRouter(.*?)BrowserRouter>/gs,
+      "{children}"
+    );
+  } else {
+    // For projects without BrowserRouter (singe page)
+    providerFile = providerFile.replaceAll("<Index />", "{children}");
+  }
+
   providerFile = providerFile.replaceAll("App = ()", CHILDREN_ARGS);
   providerFile = providerFile.replaceAll("App", "Providers");
+  providerFile = providerFile.replaceAll("./", "@/");
   fs.writeFileSync(providerPath, providerFile);
 
   // Layout

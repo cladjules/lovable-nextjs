@@ -4,11 +4,6 @@ import path from "node:path";
 const TEMPLATE_PATH = "./templates/page.tsx";
 
 const appDir = path.join(path.resolve(), "./nextjs/src/app");
-const pagesDir = path.join(path.resolve(), "../src/pages");
-
-function toLower(str) {
-  return str.replace(/[A-Z]/g, (c) => c.toLowerCase());
-}
 
 function extractRoutes(jsxString) {
   const routes = [];
@@ -33,10 +28,21 @@ function exec() {
   let appFile = fs.readFileSync(appPath, "utf-8");
   const routes = extractRoutes(appFile);
 
-  // const files = fs
-  //   .readdirSync(pagesDir, { withFileTypes: true })
-  //   .filter((f) => f.isFile() && f.name.endsWith(".tsx"))
-  //   .map((f) => path.join(pagesDir, f.name));
+  // For projects without BrowserRouter (singe page)
+  if (!routes.length) {
+    routes.push(
+      ...[
+        {
+          href: "index",
+          element: "Index",
+        },
+        {
+          href: "not-found",
+          element: "NotFound",
+        },
+      ]
+    );
+  }
 
   routes.forEach((route) => {
     const { href, element } = route;
