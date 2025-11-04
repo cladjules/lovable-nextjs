@@ -7,8 +7,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./client/*"],
-      "@Next/*": ["./src/app/*"]
+      "@/*": ["./src/client/*"],
+      "@App/*": ["./src/app/*"]
     }
   }
 }
