@@ -78,10 +78,18 @@ cd noxtable
 npm install
 ```
 
-### 3. Run Migration
+### 3. Run Full Migration
 
 ```bash
 npm run setup
+```
+
+### 4. Run An Update
+
+An update will only replace lovable components (), will leave untouched all nextJS configuration, package.json and config files
+
+```bash
+npm run update
 ```
 
 ### 4. Launch Your Next.js App
