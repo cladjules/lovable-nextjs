@@ -30,8 +30,6 @@ mkdir .$CLIENT_DIR
 cp -rf ./src $BUILD_DIR
 cp -rf ../src/* $CLIENT_DIR
 
-echo $update
-
 if [ "$update" = 0 ]; then
     # Merge package files
     npx package-json-merge ../package.json noxtable-package.json  > $BUILD_DIR/package.json
