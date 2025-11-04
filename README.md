@@ -86,7 +86,8 @@ npm run setup
 
 ### 4. Run An Update
 
-An update will only replace lovable components (), will leave untouched all nextJS configuration, package.json and config files
+An `update` will only replace lovable components (nextjs/src/client) and create new NextJS pages,
+all nextJS configuration, layout, providers, package.json and config files will remain unchanged.
 
 ```bash
 npm run update
