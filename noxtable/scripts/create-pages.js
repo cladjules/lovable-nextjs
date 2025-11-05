@@ -58,6 +58,10 @@ function exec() {
       pageDir = path.join(appDir, href.replace("/", ""));
     }
 
+    if (pageDir.includes("/:")) {
+      pageDir = pageDir.replaceAll(/\/:(.*)/g, "/[$1]");
+    }
+
     if (!fs.existsSync(pageDir)) {
       fs.mkdirSync(pageDir, { recursive: true });
     }
