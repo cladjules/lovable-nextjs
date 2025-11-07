@@ -9,7 +9,7 @@ function extractRoutes(jsxString) {
   const routes = [];
 
   // Match <Route path="..." element={<ComponentName />} />
-  const routeRegex = /<Route\s+path="([^"]+)"\s+element={<(\w+)\s*\/>}\s*\/>/g;
+  const routeRegex = /<Route\s+path="([^"]+)"\s+element={<(\w+) .*\/>}\s*\/>/g;
 
   let match;
   while ((match = routeRegex.exec(jsxString)) !== null) {
@@ -67,9 +67,13 @@ function exec() {
     }
 
     const destPath = path.join(pageDir, pageName);
-    let template = fs.readFileSync(TEMPLATE_PATH, "utf8");
-    template = template.replace(/PAGENAME/g, element);
-    fs.writeFileSync(destPath, template);
+    const checkPath = destPath.replace("/noxtable", "");
+
+    if (!fs.existsSync(checkPath)) {
+      let template = fs.readFileSync(TEMPLATE_PATH, "utf8");
+      template = template.replace(/PAGENAME/g, element);
+      fs.writeFileSync(destPath, template);
+    }
   });
 }
 
