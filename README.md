@@ -101,6 +101,15 @@ cd ../nextjs
 npm run dev
 ```
 
+### 5. Watch for development
+
+If you are actively developing and you want your components edited in Lovable to automatically be converted,
+you can let the below command run in a separate terminal or window.
+
+```bash
+npm run watch
+```
+
 🎉 **That's it!** Your Lovable app is now running on Next.js at `http://localhost:3000`
 
 ## 📦 Deployment

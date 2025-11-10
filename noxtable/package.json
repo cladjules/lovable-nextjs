@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "setup": "sh ./setup.sh",
-    "update": "sh ./setup.sh --update"
+    "update": "sh ./setup.sh --update",
+    "watch": "watch 'sh ./watch.sh' ../src"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
@@ -15,6 +16,7 @@
     "globals": "^16.4.0",
     "package-json-merge": "^0.0.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2"
+    "typescript-eslint": "^8.46.2",
+    "watch": "^1.0.2"
   }
 }
