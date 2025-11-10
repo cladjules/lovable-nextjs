@@ -29,6 +29,7 @@ mkdir .$CLIENT_DIR
 # Copy resources
 cp -rf ./src $BUILD_DIR
 cp -rf ../src/* $CLIENT_DIR
+cp -rf ../public $BUILD_DIR
 
 if [ "$update" = 0 ]; then
     # Merge package files
