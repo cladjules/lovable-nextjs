@@ -1,7 +1,7 @@
 "use client";
 
 import NextLink, { LinkProps } from "next/link";
-import { usePathname, useParams } from "next/navigation";
+import { usePathname, useParams, useRouter } from "next/navigation";
 
 const useLocation = () => {
   const pathname = usePathname();
@@ -9,6 +9,11 @@ const useLocation = () => {
   return {
     pathname,
   };
+};
+
+const useNavigate = () => {
+  const router = useRouter();
+  return router.push;
 };
 
 const Link = ({
@@ -24,4 +29,4 @@ const Link = ({
   return <NextLink href={href || to} {...args} />;
 };
 
-export { Link, useLocation, useParams };
+export { Link, useLocation, useParams, useNavigate };
